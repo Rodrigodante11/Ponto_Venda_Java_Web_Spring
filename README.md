@@ -47,11 +47,18 @@ Dependencias do projeto
   import jakarta.persistence.GeneratedValue;
   import jakarta.persistence.GenerationType;
   import jakarta.persistence.Column;
+  import jakarta.persistence.ManyToOne;
+  import jakarta.persistence.JoinColumn;
 ``` 
 - @Table(name = "nomeTabela") : definindo para a entidade o nome que a classe tera na tabela
 - @Entity: Essa anotação  é utilizada para informar que uma classe também é uma entidade. A partir disso, a JPA estabelecerá a ligação entre a entidade e uma tabela de mesmo nome no banco de dados, onde os dados de objetos desse tipo poderão ser persistidos.
 - @Id: Definindo com atributo sera o ID da tabela
 - @GeneratedValue(strategy = GenerationType.IDENTITY) : Definindo que o ID sera autoincremento
 - @Column(length = 100, nullable = false) : Serve para definir tamanho , nome , pode ser nulo ou nao e etc de uma coluna da Tabela
+
+- @ManyToOne 
+- @OneToMany(mappedBy = "nome do atributo colocado la no @ManyToOne da classe com que relacao", fetch = FetchType.LAZY) 
+
+- @JoinColumn(name = "product_id", nullable = false): Definindo o name da tabela e os parametros da chave estrangeira
 
 
