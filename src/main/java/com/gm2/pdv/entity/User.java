@@ -1,16 +1,12 @@
 package com.gm2.pdv.entity;
 
-import jakarta.persistence.Table;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Column;
+import jakarta.persistence.*;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.Data;
 
+import java.util.List;
 
 
 @AllArgsConstructor
@@ -28,9 +24,6 @@ public class User {
     private String name;
     private boolean isEnable;
 
-    public Long getId() {
-        return id;
-    }
-
-
+    @OneToMany(mappedBy = "user")
+    private List<Sale> sales;
 }
